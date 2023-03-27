@@ -1,16 +1,16 @@
 def label = "agent-${UUID.randomUUID().toString()}"
 def gitBranch = 'master'
 def docker_registry = "ghcr.io"  
-def imageName = "ghcr.io/shclub/edu12-frontend"
+def imageName = "ghcr.io/ryunchang/edu12-frontend"
 def git_ops_name = "edu12-frontend-gitops"
-def P_NAMESPACE = "edu30"
+def P_NAMESPACE = "edu13"
 
 def TAG = getTag(gitBranch)
 
 podTemplate(label: label, serviceAccount: 'jenkins-admin', namespace: P_NAMESPACE,
     containers: [
-        containerTemplate(name: 'podman', image: 'ghcr.io/shclub/podman_kustomize:v1', ttyEnabled: true, command: 'cat', privileged: true, alwaysPullImage: true)
-        ,containerTemplate(name: 'jnlp', image: 'ghcr.io/shclub/jenkins/jnlp-slave:latest-jdk11', args: '${computer.jnlpmac} ${computer.name}')
+        containerTemplate(name: 'podman', image: 'ghcr.io/ryunchang/podman_kustomize:v1', ttyEnabled: true, command: 'cat', privileged: true, alwaysPullImage: true)
+        ,containerTemplate(name: 'jnlp', image: 'ghcr.io/ryunchang/jenkins/jnlp-slave:latest-jdk11', args: '${computer.jnlpmac} ${computer.name}')
     ],
     volumes: [
         hostPathVolume(hostPath: '/etc/containers' , mountPath: '/var/lib/containers' ),
@@ -23,7 +23,7 @@ podTemplate(label: label, serviceAccount: 'jenkins-admin', namespace: P_NAMESPAC
        stage('Clone Git Project') {
             sh "pwd"
             echo 'Clone'
-            git branch: 'master', credentialsId: 'github_ci', url: 'https://github.com/shclub/edu12-3.git'
+            git branch: 'master', credentialsId: 'github_ci', url: 'https://github.com/ryunchang/edu12-3.git'
             sh "ls"
         }
                      

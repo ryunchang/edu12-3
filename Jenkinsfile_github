@@ -3,14 +3,14 @@ def gitBranch = 'master'
 def docker_registry = "ghcr.io"  
 
 // 본인 이미지 사용
-def imageName = "ghcr.io/shclub/edu12-frontend"
+def imageName = "ghcr.io/ryunchang/edu12-frontend"
 def git_ops_name = "edu12-frontend-gitops"
 // 본인 Namespace
-def P_NAMESPACE = "edu30"
+def P_NAMESPACE = "edu13"
 // 본인 slave pvc
-def P_SLAVE_PVC = "jenkins-edu-slave-pvc"
+def P_SLAVE_PVC = "jenkins-edu13-slave-pvc"
 // 본인 이메일
-def P_EMAIL = "shclub@gmail.com"
+def P_EMAIL = "ckdtjq202001@gmail.com"
 
 
 def TAG = getTag(gitBranch)

@@ -4,6 +4,9 @@ def docker_registry = "ghcr.io"
 def imageName = "ghcr.io/ryunchang/edu12-frontend"
 def git_ops_name = "edu12-frontend-gitops"
 def P_NAMESPACE = "edu13"
+def P_SLAVE_PVC = "jenkins-edu13-slave-pvc"
+def P_EMAIL = "ckdtjq202001@gmail.com"
+
 
 def TAG = getTag(gitBranch)
 
